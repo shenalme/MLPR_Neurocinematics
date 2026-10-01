@@ -1,0 +1,67 @@
+figure,title,caption
+Fig01_alignment,Video–EEG alignment,Grey: full video file; green: aligned stimulus interval used for analysis (363 non-overlapping 4-s windows). Video before the stimulus onset and after the end of the EEG recording is discarded.
+Fig02_eeg_psd,Power spectra after preprocessing,Median power spectral density across channels for each participant after the authors' preprocessing (30 Hz).
+Fig03_isc_timeline,ISC over the film,Inter-subject correlation per window for every participant (grey) and the group mean (blue) with a moving average.
+Fig04_isc_by_participant,ISC distribution per participant,"Box = interquartile range, line = median, whiskers = 1.5 × IQR, over all windows. Level differences between participants motivate subject-wise median labels."
+Fig05_cut_detection,Shot-cut detection,Colour-histogram distance between consecutive frames (5 fps). Values above the robust threshold are detected as cuts; they define the shots used for splitting.
+Fig05b_shot_durations,Distribution of shot durations,216 shots detected in the aligned stimulus.
+Fig05c_isc_by_shot_duration,ISC by shot duration,Mean ISC for windows in short to long shots (quartiles of the current shot's duration); faint lines are individual participants.
+Fig06_feature_groups_timeline,Feature groups over the film,"Mean z-scored value of each feature group per window (5-window moving average), stacked vertically for readability."
+Fig07_feature_correlations,Correlation structure of the 170 features,"Spearman correlations between all features across windows, ordered by feature group (black lines). Blocks of high correlation show redundancy within groups, e.g. motion and editing features."
+Fig08_pca_variance,Effective dimensionality of the features,Cumulative variance explained by principal components of the standardised 170 features.
+Fig09_pca_isc,"PCA of the windows, coloured by audience ISC",One point per window (170 standardised features; unsupervised). Colour = mean ISC over participants; high-ISC windows (red) do not form a single region of feature space.
+Fig10_tsne_isc,"t-SNE of the windows, coloured by audience ISC",One point per window (170 standardised features; unsupervised). Colour = mean ISC over participants; high-ISC windows (red) do not form a single region of feature space.
+Fig11_isc_after_cuts,ISC is highest shortly after shot cuts,ISC as a function of time elapsed since the most recent cut (n = windows per bin). Spearman ρ between group ISC and time since cut = -0.34 (descriptive; windows are autocorrelated).
+Fig11b_tsne_CLIP,"t-SNE of CLIP embeddings, coloured by audience ISC",One point per window (512-D CLIP embedding; 52 principal components explain 90 % of its variance). Windows cluster by scene content; ISC varies within clusters.
+Fig11c_tsne_DINOv2,"t-SNE of DINOv2 embeddings, coloured by audience ISC",One point per window (384-D DINOv2 embedding; 38 principal components explain 90 % of its variance). Windows cluster by scene content; ISC varies within clusters.
+Fig12_split,Shot-based chronological split,"Each bar is one 4-s window. Dotted lines separate the 10 blocks; within each block shots are assigned in time order to train → validation → test, with buffer windows (grey) at every boundary."
+Fig13a_corrca_spectrum,Strength of correlated components,Generalised eigenvalues of CorrCA fitted on training windows; the first components capture the EEG activity most shared across viewers.
+Fig13b_1_corrca_topomap_c1,Scalp map of correlated component 1,Forward model (spatial pattern) of component 1; sign is arbitrary.
+Fig13b_2_corrca_topomap_c2,Scalp map of correlated component 2,Forward model (spatial pattern) of component 2; sign is arbitrary.
+Fig13b_3_corrca_topomap_c3,Scalp map of correlated component 3,Forward model (spatial pattern) of component 3; sign is arbitrary.
+Fig13c_corrca_component_isc,ISC per component: training vs held-out windows,"Mean ISC of each correlated component in the training, validation and test windows. Similar values on held-out windows show that the CorrCA filters generalise beyond the data they were fitted on."
+Fig13d_isc_reliability,Reliability of the audience ISC time course,Correlation across windows between the mean ISC of two random halves of the participants (200 splits). Higher values mean the ISC time course is more consistent across viewers — a more reliable prediction target.
+Fig13e_isc_measures_timeline,Audience ISC over the film: channel average vs CorrCA,Correlation between the two time courses: r = 0.67.
+Fig13f_isc_after_cuts_both,Both ISC measures peak after cuts,"Mean (± SEM over viewers) of z-scored ISC by time since the last cut, for channel-average and CorrCA ISC."
+Fig14a_class_balance_targets,Class balance of the three targets,Fraction of windows labelled HIGH in each split (individual targets: mean over participants).
+Fig14b_class_balance_individual,Class balance per participant (individual CorrCA target),Fraction of windows labelled HIGH per participant and split (subject-wise median).
+Fig14c_label_raster,HIGH/LOW labels over the film,"Rows: each viewer's individual CorrCA label (subject-wise median) and, at the bottom, the audience label used as the primary target."
+Fig14d_individual_vs_audience,How well does each viewer follow the audience?,Fraction of windows in which a viewer's own HIGH/LOW label equals the audience label.
+Fig15_combination_heatmap,All feature-set combinations × models,"Test balanced accuracy of all 150 configurations: 15 combinations of the Visual, Audio, CLIP and DINOv2 blocks (rows) × 5 models with raw or PCA-reduced blocks (columns). Hyper-parameters were chosen on validation."
+Fig16_best_per_combination,Best model for each feature combination,"For every combination and variant, the model with the highest validation ROC-AUC is shown with its test balanced accuracy and 95 % confidence interval."
+Fig17_pca_effect,Effect of PCA,Each point is one combination × model. Points above the diagonal improved with PCA (mean change +0.005).
+Fig18_block_contribution,Marginal contribution of each feature block,"Average change in test balanced accuracy when a block is added to any combination that lacks it (over all combinations, models and variants; error bars = SEM)."
+Fig19_pca_dimensions,Dimensionality after PCA,"Number of principal components retained per block (median, range over configurations), fitted on training data only."
+Fig20_top5_per_participant,Per-participant test accuracy of the five best configurations,Configurations ranked by validation ROC-AUC; rows are participants.
+Fig20b_loso_individual,Generalisation to new viewers (LOSO) — Individual CorrCA ISC,Top configurations (validation ranking) and the primary interpretable configuration: LOSO with the same film (light) and with unseen film moments (dark).
+Fig20c_loso_unseen_individual,"LOSO — unseen film, per participant (Individual CorrCA ISC)","Each cell is one LOSO fold. Column labels: model · blocks (V = Visual, A = Audio, C = CLIP, D = DINOv2) · raw/PCA."
+Fig20b_loso_individual_avg,Generalisation to new viewers (LOSO) — Individual channel-average ISC,Top configurations (validation ranking) and the primary interpretable configuration: LOSO with the same film (light) and with unseen film moments (dark).
+Fig20c_loso_unseen_individual_avg,"LOSO — unseen film, per participant (Individual channel-average ISC)","Each cell is one LOSO fold. Column labels: model · blocks (V = Visual, A = Audio, C = CLIP, D = DINOv2) · raw/PCA."
+Fig20d_loso_corrca_vs_avg,Does CorrCA ISC make viewers more predictable?,Each point is one configuration (mean over held-out participants). Points above the diagonal are better predicted with CorrCA-based labels.
+Fig20e_target_comparison,Which target is most predictable from film features?,"Test balanced accuracy on unseen film moments (Visual + Audio features, raw) for the three targets. Same split, features and tuning procedure."
+Fig20f_label_lag,Stimulus–response lag — Random forest · Visual + Audio · raw,Test performance when the Audience CorrCA ISC label is shifted relative to the film features.
+Fig21_1_confusion,Confusion matrix — XGBoost · Visual · PCA,Row-normalised confusion matrix on all test rows.
+Fig22_1_roc,ROC curves — XGBoost · Visual · PCA,Test ROC curve pooled and per participant.
+Fig23_1_pr,Precision–recall — XGBoost · Visual · PCA,Pooled test precision–recall curve.
+Fig24_1_calibration,Calibration — XGBoost · Visual · PCA,Reliability diagram on the test set (quantile bins).
+Fig25_1_threshold,Threshold sensitivity — XGBoost · Visual · PCA,Test scores across decision thresholds (inspection only; reported results use 0.5).
+Fig26_1_timeline,Predictions along the film — XGBoost · Visual · PCA,Predicted probability of HIGH ISC vs the observed fraction of participants HIGH per test window (Spearman ρ = 0.02).
+Fig21_2_confusion,Confusion matrix — SVM (RBF) · Visual · PCA,Row-normalised confusion matrix on all test rows.
+Fig22_2_roc,ROC curves — SVM (RBF) · Visual · PCA,Test ROC curve pooled and per participant.
+Fig23_2_pr,Precision–recall — SVM (RBF) · Visual · PCA,Pooled test precision–recall curve.
+Fig24_2_calibration,Calibration — SVM (RBF) · Visual · PCA,Reliability diagram on the test set (quantile bins).
+Fig25_2_threshold,Threshold sensitivity — SVM (RBF) · Visual · PCA,Test scores across decision thresholds (inspection only; reported results use 0.5).
+Fig26_2_timeline,Predictions along the film — SVM (RBF) · Visual · PCA,Predicted probability of HIGH ISC vs the observed fraction of participants HIGH per test window (Spearman ρ = -0.08).
+Fig27_ablation_lowlevel,Low-level feature-group ablation — Random forest,Test balanced accuracy when training on subsets of the visual and audio features (hyper-parameters fixed to the validation-selected values). The vertical line marks the model with all features.
+Fig28_shap_importance,Global feature importance (SHAP) — Random forest · Visual + Audio,"Mean absolute SHAP value of the 15 most important features on the test windows, coloured by feature group."
+Fig29_shap_beeswarm,SHAP beeswarm — Random forest · Visual + Audio,"Each dot is one test window; position = contribution to the predicted log-odds of HIGH ISC, colour = feature value (red high, blue low)."
+Fig30_1_shap_dependence,SHAP dependence — Luminance-change variability (−1 window),How the value of 'Luminance-change variability (−1 window)' changes the prediction for each test window.
+Fig30_2_shap_dependence,SHAP dependence — Shot duration (−1 window),How the value of 'Shot duration (−1 window)' changes the prediction for each test window.
+Fig30_3_shap_dependence,SHAP dependence — Max colour change (−1 window),How the value of 'Max colour change (−1 window)' changes the prediction for each test window.
+Fig30_4_shap_dependence,SHAP dependence — Time into shot (−1 window),How the value of 'Time into shot (−1 window)' changes the prediction for each test window.
+Fig31_shap_groups,Contribution of feature groups (SHAP),Share of the total mean |SHAP| attributed to each feature group.
+Fig32_shap_local_HIGH,Local explanation — most confident HIGH prediction,Window at 23.6 min (predicted P(HIGH) = 0.84): contribution of each feature.
+Fig32_shap_local_LOW,Local explanation — most confident LOW prediction,Window at 24.0 min (predicted P(HIGH) = 0.31): contribution of each feature.
+Fig33_block_importance,Block importance — XGBoost · Visual · PCA,Decrease in test ROC-AUC when all features of a block are permuted jointly (mean ± SD over 10 permutations) for the best configuration on validation.
+Fig34_permutation_importance,Permutation importance — Random forest · Visual + Audio,Mean ± SD decrease in test ROC-AUC over 10 permutations of each feature.
+Fig35_null_test,Circular-shift null test — XGBoost · Visual · PCA,Test accuracy after destroying the film–EEG alignment by circular shifts (≥ 60 s). Smallest attainable p with 30 shifts = 0.032.

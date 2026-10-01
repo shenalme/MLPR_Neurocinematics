@@ -1,0 +1,162 @@
+{
+  "config": {
+    "VIDEO_DIR": "/content/drive/MyDrive/01 MLPR",
+    "EEG_DIR": "/content/drive/MyDrive/01 MLPR/MrBean",
+    "OUT_DIR": "/content/drive/MyDrive/MrBean_ISC_Paper_publication_final",
+    "VIDEO_FILE": null,
+    "SYNC_MODE": "auto",
+    "SEGMENT_START_S": 39.77,
+    "SEGMENT_END_S": 1495.0,
+    "SYNC_TOL_S": 2.0,
+    "EDGE_TRIM_S": 1.0,
+    "WINDOW_S": 4.0,
+    "HIGHPASS_HZ": 0.5,
+    "NOTCH_HZ": [
+      50.0
+    ],
+    "EEG_SFREQ": 30.0,
+    "FALLBACK_BAD_CHANNELS": {
+      "P01": [
+        "B25",
+        "B31"
+      ],
+      "P02": [
+        "A20",
+        "A21",
+        "A26",
+        "A31",
+        "B25",
+        "B31"
+      ],
+      "P03": [
+        "A28",
+        "A29",
+        "A30",
+        "B25",
+        "B31",
+        "B32"
+      ],
+      "P04": [
+        "A25",
+        "A30",
+        "B25",
+        "B29"
+      ],
+      "P05": [
+        "A30",
+        "B25",
+        "B31"
+      ],
+      "P06": [
+        "A30",
+        "B25"
+      ],
+      "P07": [],
+      "P08": [
+        "B25"
+      ],
+      "P09": [
+        "B25"
+      ]
+    },
+    "VIDEO_FPS": 5.0,
+    "FRAME_SIZE": [
+      427,
+      240
+    ],
+    "CUT_MAD_K": 5.0,
+    "N_BLOCKS": 10,
+    "SPLIT_FRACTIONS": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "SPLIT_TOLERANCE": 0.08,
+    "MIN_SHOT_WINDOWS": 2,
+    "MIN_CUT_GAP_S": 0.5,
+    "LABEL_REFERENCE": "session",
+    "LOSO_TOP_K": 10,
+    "CORRCA_K": 3,
+    "CORRCA_REG": 0.1,
+    "PRIMARY_TARGET": "audience",
+    "LAG_CONTEXT_WINDOWS": [
+      1,
+      2
+    ],
+    "CUT_KERNEL_TAUS": [
+      1.0,
+      2.0,
+      4.0
+    ],
+    "LABEL_LAGS": [
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3
+    ],
+    "BUFFER_WINDOWS": 1,
+    "MODELS": [
+      "logreg",
+      "svm",
+      "rf",
+      "xgb",
+      "mlp"
+    ],
+    "N_BOOT": 1000,
+    "N_NULL": 30,
+    "MIN_SHIFT_S": 60,
+    "SEED": 42,
+    "FIG_DPI": 600,
+    "EMB_FPS": 1.0,
+    "EMB_BATCH": 32,
+    "CLIP_MODEL": "ViT-B/32",
+    "DINO_MODEL": "facebook/dinov2-small",
+    "PCA_VARIANCE": 0.95
+  },
+  "alignment": {
+    "video_duration_s": 1509.701,
+    "eeg_duration_s": {
+      "P01": 1459.2705078125,
+      "P02": 1459.2734375,
+      "P03": 1459.29052734375,
+      "P04": 1459.2734375,
+      "P05": 1459.2568359375,
+      "P06": 1459.2568359375,
+      "P07": 1459.2705078125,
+      "P08": 1459.2392578125,
+      "P09": 1459.189453125
+    },
+    "mode": "zenodo_segment",
+    "offset_s": 39.77,
+    "aligned_interval_s": [
+      1.0,
+      1453.0
+    ],
+    "n_segments": 363,
+    "has_audio": true,
+    "video_discarded_before_s": 39.77,
+    "video_discarded_after_s": 16.93100000000004
+  },
+  "blocks": {
+    "Visual": 158,
+    "Audio": 12,
+    "CLIP": 512,
+    "DINOv2": 384
+  },
+  "best_configuration": "Visual|pca|xgb",
+  "top_configurations": [
+    "Visual|pca|xgb",
+    "Visual|pca|svm",
+    "Visual + CLIP + DINOv2|raw|xgb",
+    "Visual|raw|rf",
+    "Visual|pca|rf"
+  ],
+  "versions": {
+    "mne": "1.13.2",
+    "sklearn": "1.6.1",
+    "xgboost": "3.4.1",
+    "shap": "0.52.0"
+  }
+}

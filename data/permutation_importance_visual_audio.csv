@@ -1,0 +1,171 @@
+feature,label,group,auc_drop_mean,auc_drop_sd
+lum_change_sd_lag1,Luminance-change variability (−1 window),temporal_context,0.0078431372549019,0.00888717998011813
+edge_sd,Edge-density variability,texture,0.0029411764705881806,0.0026705121290046432
+motgrid_10,Motion middle-left,composition,0.0029411764705881693,0.004848412436659671
+lum_change_mean_lag2,Luminance change (−2 window),temporal_context,0.002723311546840912,0.0019024236597573942
+motion_change_lag1,Motion change (−1 window),temporal_context,0.0015250544662308795,0.0012130205583507816
+motgrid_22,Motion bottom-right,composition,0.001416122004357223,0.0022875816993464123
+lumgrid_01,Luminance top-centre,composition,0.0007625272331154176,0.0011982570806100313
+prev_shot_duration_lag2,Previous shot duration (−2 window),temporal_context,0.0006535947712417722,0.0017015794500885872
+flow_mean,Mean optical flow,motion,0.0006535947712417722,0.0022430566755962922
+flow_dir_entropy_lag1,Motion-direction entropy (−1 window),temporal_context,0.0006535947712417612,0.0018993023719131425
+cut_rate_30s_lag2,Cut rate (past 30 s) (−2 window),temporal_context,0.0005446623093681158,0.0008782415847819509
+motgrid_21,Motion bottom-centre,composition,0.0005446623093681158,0.0016339869281045988
+next_shot_duration_lag2,Next shot duration (−2 window),temporal_context,0.0002178649237472241,0.002568589569183332
+rms_mean,RMS contrast,colour_luminance,0.000217864923747213,0.0012703598899445005
+cut_rate_30s_lag1,Cut rate (past 30 s) (−1 window),temporal_context,0.00010893246187363426,0.00032679738562090276
+rms_sd,Contrast variability,colour_luminance,0.00010893246187360095,0.0012372349337255455
+fdiff_max,Max frame difference,motion,0.00010893246187360095,0.0018518518518518498
+hist_change_max,Max colour change,temporal_editing,0.00010893246187357875,0.001786625214254563
+flow_max_lag1,Max optical flow (−1 window),temporal_context,0.00010893246187356764,0.002688227163235985
+mean_shot_len,Mean shot length,temporal_editing,0.0,0.0
+mean_shot_len_lag2,Mean shot length (−2 window),temporal_context,0.0,0.0
+edge_change_lag2,Edge-density change (−2 window),temporal_context,-4.4408920985006264e-17,0.0015405376496438836
+motion_center_lag2,Central motion (−2 window),temporal_context,-6.661338147750939e-17,0.0012889062708278112
+lumgrid_21,Luminance bottom-centre,composition,-7.771561172376095e-17,0.0006889493813003098
+flow_max_lag2,Max optical flow (−2 window),temporal_context,-0.00010893246187367866,0.0009048609872459784
+aud_centroid_sd,Audio centroid variability,audio,-0.00010893246187368977,0.0014975737565215128
+global_motion_lag2,Global (camera) motion (−2 window),temporal_context,-0.00010893246187368977,0.004709360854295671
+aud_onset_rate,Audio onset rate,audio,-0.00010893246187370087,0.0014161220043572913
+lumgrid_02,Luminance top-right,composition,-0.00010893246187370087,0.002732012244876806
+mean_shot_dur_30s_lag2,Mean shot duration (past 30 s) (−2 window),temporal_context,-0.00021786492374731292,0.0013605660127229756
+R_mean,Mean red,colour_luminance,-0.00021786492374734623,0.0021677286211473426
+lum_mean,Mean luminance,colour_luminance,-0.00021786492374735732,0.0018741449383535233
+shot_elapsed_lag2,Time into shot (−2 window),temporal_context,-0.0003267973856209694,0.0004991912521738007
+fdiff_mean,Mean frame difference,motion,-0.00043572984749462584,0.0022953494014929894
+flow_dir_entropy_lag2,Motion-direction entropy (−2 window),temporal_context,-0.00043572984749462584,0.005020356697953323
+shot_remaining_lag2,Time until next cut (−2 window),temporal_context,-0.00043572984749462584,0.007245441894691024
+cut_kernel_4s,Cut-response kernel (τ = 4 s),temporal_context,-0.00043572984749462584,0.0024935780266361093
+flow_y_lag2,Vertical motion (−2 window),temporal_context,-0.0005446623093682046,0.0007307411691175924
+n_cuts_lag2,Number of cuts (−2 window),temporal_context,-0.0005446623093682268,0.0005446623093682268
+aud_silence_frac,Silence fraction,audio,-0.0006535947712418833,0.0008714596949891129
+n_cuts,Number of cuts,temporal_editing,-0.0007625272331155175,0.0004991912521738708
+lumgrid_00,Luminance top-left,composition,-0.0007625272331155175,0.0013821979891557314
+motion_change,Motion change,temporal_editing,-0.0007625272331155397,0.0013821979891557193
+motgrid_01,Motion top-centre,composition,-0.0007625272331155397,0.0015443841915858143
+global_motion_lag1,Global (camera) motion (−1 window),temporal_context,-0.0008714596949891629,0.0014451524140982313
+shot_duration_lag1,Shot duration (−1 window),temporal_context,-0.000871459694989174,0.006622520328353225
+cut_kernel_1s,Cut-response kernel (τ = 1 s),temporal_context,-0.000980392156862786,0.0034602135455922807
+hue_h3,Hue green,hue_distribution,-0.000980392156862786,0.0034257484081735377
+cut_kernel_2s,Cut-response kernel (τ = 2 s),temporal_context,-0.0009803921568628192,0.003724470805507358
+lumgrid_20,Luminance bottom-left,composition,-0.001198257080610088,0.001416122004357305
+prev_shot_duration,Previous shot duration,shot_timing,-0.001198257080610099,0.0005866192600364761
+spec_centroid,Spatial spectral centroid,texture,-0.0013071895424836776,0.0026593803084387327
+shot_duration_lag2,Shot duration (−2 window),temporal_context,-0.001307189542483722,0.0027900323474653057
+lumgrid_11,Luminance middle-centre,composition,-0.0013071895424837444,0.001809721974491965
+lumgrid_10,Luminance middle-left,composition,-0.0014161220043573453,0.0022875816993463897
+lapvar_mean,Sharpness,texture,-0.0014161220043573675,0.0015443841915858299
+flow_max,Max optical flow,motion,-0.0015250544662309573,0.003050108932461867
+time_since_cut_lag2,Time since last cut (−2 window),temporal_context,-0.0015250544662309684,0.0013950161737326275
+flow_mean_lag1,Mean optical flow (−1 window),temporal_context,-0.0015250544662309795,0.0013950161737326585
+lum_change_sd_lag2,Luminance-change variability (−2 window),temporal_context,-0.0015250544662309905,0.0026771690038005316
+flow_y,Vertical motion,motion,-0.0015250544662309905,0.001630351802515899
+local_motion,Local (object) motion,motion,-0.0015250544662310018,0.002189515385865105
+cut_rate_30s,Cut rate (past 30 s),shot_timing,-0.0016339869281046583,0.0007307411691175924
+time_since_cut,Time since last cut,temporal_editing,-0.001742919389978248,0.0038728515979588344
+hist_change_mean_lag1,Mean colour change (−1 window),temporal_context,-0.001742919389978248,0.006166000739906288
+fdiff_sd,Frame-difference variability,motion,-0.0017429193899782703,0.0032387949340563042
+flow_p90_lag2,Optical flow (90th pct.) (−2 window),temporal_context,-0.0018518518518518933,0.002011567027518448
+moving_frac,Moving-pixel fraction,motion,-0.0018518518518519044,0.0038682529203844483
+fdiff_max_lag1,Max frame difference (−1 window),temporal_context,-0.0018518518518519044,0.006680500264253571
+motgrid_00,Motion top-left,composition,-0.0018518518518519267,0.0026705121290046315
+sat_change,Saturation change,temporal_editing,-0.0019607843137255387,0.0023766257330361117
+sobel_sd,Gradient variability,texture,-0.001960784313725561,0.0029552636092049036
+dark_frac,Dark-pixel fraction,colour_luminance,-0.001960784313725561,0.0012703598899445252
+hue_h4,Hue cyan,hue_distribution,-0.001960784313725572,0.00252196882413729
+flow_x,Horizontal motion,motion,-0.002069716775599162,0.0014161220043572966
+edge_mean,Edge density,texture,-0.002069716775599173,0.0018518518518518547
+mean_shot_dur_30s_lag1,Mean shot duration (past 30 s) (−1 window),temporal_context,-0.002069716775599173,0.0016484472712877856
+sat_mean,Mean saturation,colour_luminance,-0.002069716775599173,0.001329690154219363
+aud_flux_mean,Audio spectral flux,audio,-0.002069716775599184,0.0020925242605989796
+aud_centroid_mean,Audio spectral centroid,audio,-0.002069716775599195,0.0015748183327669938
+sat_sd,Saturation variability,colour_luminance,-0.0020697167755992065,0.002035026328133955
+prev_shot_duration_lag1,Previous shot duration (−1 window),temporal_context,-0.0020697167755992065,0.0014161220043573002
+hue_h5,Hue blue,hue_distribution,-0.002178649237472785,0.0030810752992878063
+hf_ratio_sd,Spatial-freq. ratio variability,texture,-0.0021786492374728183,0.0016157295178857568
+flow_y_lag1,Vertical motion (−1 window),temporal_context,-0.0021786492374728183,0.0019486431176468644
+time_since_cut_lag1,Time since last cut (−1 window),temporal_context,-0.0021786492374728517,0.00119329533225528
+hist_change_max_lag2,Max colour change (−2 window),temporal_context,-0.0022875816993464526,0.0017866252142545648
+G_mean,Mean green,colour_luminance,-0.002396514161220098,0.0029148340218430697
+motion_center,Central motion,motion,-0.002505446623093688,0.002126276829623471
+flow_sd,Optical-flow variability,motion,-0.00250544662309371,0.002884139933523679
+aud_flatness,Audio flatness,audio,-0.0025054466230937213,0.001889907578746997
+aud_zcr,Audio zero-crossing rate,audio,-0.002505446623093732,0.0031212524579290477
+shot_remaining,Time until next cut,shot_timing,-0.0025054466230937543,0.002389075402991447
+hist_change_mean,Mean colour change,temporal_editing,-0.002614379084967333,0.004470214494266482
+motion_change_lag2,Motion change (−2 window),temporal_context,-0.002614379084967355,0.0012130205583507736
+flow_mean_lag2,Mean optical flow (−2 window),temporal_context,-0.0026143790849674107,0.001395016173732657
+flow_x_lag2,Horizontal motion (−2 window),temporal_context,-0.0027233115468410117,0.0013117205423520987
+flow_p90,Optical flow (90th pct.),motion,-0.0027233115468410117,0.0021374092451360103
+hue_h7,Hue magenta,hue_distribution,-0.0027233115468410342,0.002023330677669578
+hue_h0,Hue red–orange,hue_distribution,-0.0027233115468410342,0.0013117205423521078
+warmth,Warmth (red − blue),hue_distribution,-0.002832244008714646,0.002020396186382482
+hue_sin,Hue direction (sin),colour_luminance,-0.0028322440087146573,0.0019607843137254967
+lum_change_mean,Luminance change,temporal_editing,-0.0028322440087146573,0.0022430566755962987
+aud_rolloff,Audio roll-off,audio,-0.0029411764705882804,0.0030050357786783875
+flow_sd_lag1,Optical-flow variability (−1 window),temporal_context,-0.0029411764705882916,0.0036795960248484907
+lumgrid_12,Luminance middle-right,composition,-0.0029411764705883137,0.0017598577801093114
+colorful_mean,Colourfulness,colour_luminance,-0.0030501089324619034,0.0028322440087145827
+mean_shot_dur_30s,Mean shot duration (past 30 s),shot_timing,-0.0030501089324619034,0.0016009736880935627
+motgrid_02,Motion top-right,composition,-0.0030501089324619255,0.0031117335200622556
+shot_position,Relative position in shot,shot_timing,-0.003050108932461937,0.002426041116701559
+motgrid_11,Motion middle-centre,composition,-0.003050108932461937,0.0014451524140981944
+local_motion_lag2,Local (object) motion (−2 window),temporal_context,-0.003050108932461959,0.001067315792062399
+hf_ratio_mean,High/low spatial-freq. ratio,texture,-0.003159041394335549,0.0029812488417002314
+lum_change_sd,Luminance-change variability,temporal_editing,-0.00315904139433556,0.0024576283600606743
+hue_h6,Hue violet,hue_distribution,-0.00315904139433556,0.0028175418641345575
+shot_position_lag1,Relative position in shot (−1 window),temporal_context,-0.003159041394335582,0.0022030227032850233
+shot_elapsed,Time into shot,shot_timing,-0.0031590413943355933,0.005234428660886267
+lapvar_sd,Sharpness variability,texture,-0.0032679738562092055,0.0018227887288324266
+motion_center_lag1,Central motion (−1 window),temporal_context,-0.0032679738562092163,0.0018227887288324066
+global_motion,Global (camera) motion,motion,-0.0032679738562092163,0.0024840423204774142
+sat_change_lag1,Saturation change (−1 window),temporal_context,-0.0033769063180828394,0.0037244708055073398
+shot_remaining_lag1,Time until next cut (−1 window),temporal_context,-0.0033769063180828507,0.007786194892596245
+lab_b,CIELAB b*,colour_luminance,-0.003376906318082862,0.0039109636320297
+sat_change_lag2,Saturation change (−2 window),temporal_context,-0.003485838779956463,0.0016009736880935883
+local_motion_lag1,Local (object) motion (−1 window),temporal_context,-0.003485838779956485,0.0017429193899782078
+fdiff_mean_lag2,Mean frame difference (−2 window),temporal_context,-0.003594771241830097,0.0037751031484016093
+colorful_sd,Colourfulness variability,colour_luminance,-0.0035947712418301302,0.0057445738010611
+fdiff_max_lag2,Max frame difference (−2 window),temporal_context,-0.0035947712418301415,0.0018260408076514454
+bright_frac,Bright-pixel fraction,colour_luminance,-0.0037037037037037533,0.0027211320254459394
+motgrid_12,Motion middle-right,composition,-0.0037037037037037533,0.004416804996233854
+hist_change_mean_lag2,Mean colour change (−2 window),temporal_context,-0.0038126361655774097,0.0014816416676182375
+sobel_mean,Mean gradient,texture,-0.0039215686274510445,0.0018993023719131182
+moving_frac_lag1,Moving-pixel fraction (−1 window),temporal_context,-0.0039215686274510445,0.002243056675596291
+fdiff_sd_lag1,Frame-difference variability (−1 window),temporal_context,-0.004030501089324678,0.004993100930878349
+n_cuts_lag1,Number of cuts (−1 window),temporal_context,-0.004030501089324701,0.004848412436659639
+aud_bandwidth,Audio bandwidth,audio,-0.004139433551198312,0.0020553335799687335
+B_mean,Mean blue,colour_luminance,-0.004139433551198324,0.0023261608392225195
+shot_elapsed_lag1,Time into shot (−1 window),temporal_context,-0.004139433551198324,0.005398480040681424
+flow_dir_entropy,Motion-direction entropy,motion,-0.004139433551198324,0.0030733629585328907
+fdiff_sd_lag2,Frame-difference variability (−2 window),temporal_context,-0.004248366013071947,0.0019148579336870284
+shot_duration,Shot duration,shot_timing,-0.004248366013071958,0.006722995261093459
+next_shot_duration,Next shot duration,shot_timing,-0.00435729847494557,0.0024840423204774047
+moving_frac_lag2,Moving-pixel fraction (−2 window),temporal_context,-0.004466230936819216,0.003494338765216879
+center_surround,Centre–surround luminance,texture,-0.0044662309368192375,0.002688227163235991
+hue_h2,Hue yellow–green,hue_distribution,-0.004684095860566506,0.00499310093087835
+hue_h1,Hue orange–yellow,hue_distribution,-0.004684095860566506,0.00296528487773774
+motgrid_20,Motion bottom-left,composition,-0.0046840958605665175,0.002625701697863592
+lumgrid_22,Luminance bottom-right,composition,-0.0046840958605665175,0.002069716775599123
+edge_change,Edge-density change,temporal_editing,-0.004684095860566529,0.0025337044334668964
+flow_p90_lag1,Optical flow (90th pct.) (−1 window),temporal_context,-0.004793028322440118,0.001769943007545945
+flow_sd_lag2,Optical-flow variability (−2 window),temporal_context,-0.004793028322440163,0.002078298913762423
+lum_sd,Luminance variability,colour_luminance,-0.005010893246187409,0.0028489535578697135
+hist_change_max_lag1,Max colour change (−1 window),temporal_context,-0.005010893246187431,0.008198208157833007
+shot_position_lag2,Relative position in shot (−2 window),temporal_context,-0.005119825708061054,0.002757949651671464
+edge_change_lag1,Edge-density change (−1 window),temporal_context,-0.005664488017429248,0.002221794995029519
+lum_change_mean_lag1,Luminance change (−1 window),temporal_context,-0.005773420479302882,0.006315264941453489
+lab_a,CIELAB a*,colour_luminance,-0.005773420479302882,0.004466230936819174
+motion_periphery,Peripheral motion,motion,-0.005773420479302893,0.0024382384842700764
+mean_shot_len_lag1,Mean shot length (−1 window),temporal_context,-0.005882352941176528,0.0051140281456668706
+motion_periphery_lag2,Peripheral motion (−2 window),temporal_context,-0.005991285403050129,0.0019024236597574165
+next_shot_duration_lag1,Next shot duration (−1 window),temporal_context,-0.006209150326797419,0.0032697888932034097
+flow_x_lag1,Horizontal motion (−1 window),temporal_context,-0.006427015250544699,0.0035281339304360747
+motion_periphery_lag1,Peripheral motion (−1 window),temporal_context,-0.006644880174291989,0.003594771241830079
+hue_cos,Hue direction (cos),colour_luminance,-0.0068627450980392355,0.0021262768296234206
+fdiff_mean_lag1,Mean frame difference (−1 window),temporal_context,-0.006862745098039269,0.004921288452320936
+aud_rms_mean,Audio loudness (RMS),audio,-0.007298474945533828,0.0044127732245161444
+aud_rms_sd,Loudness variability,audio,-0.0075163398692810746,0.004734491026601449
+lum_entropy,Luminance entropy,colour_luminance,-0.008496732026143839,0.00615829805015363
+aud_flux_sd,Audio flux variability,audio,-0.014379084967320321,0.006834155617149512
+lbp_entropy,Texture entropy (LBP),texture,-0.017320261437908546,0.008611178289312245

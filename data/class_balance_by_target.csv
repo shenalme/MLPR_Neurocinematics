@@ -1,0 +1,10 @@
+target,split,share_high
+audience,train,0.5275229357798165
+audience,val,0.5
+audience,test,0.4426229508196721
+individual,train,0.5259938837920489
+individual,val,0.47023809523809523
+individual,test,0.4681238615664845
+individual_avg,train,0.48063200815494395
+individual_avg,val,0.5615079365079365
+individual_avg,test,0.4918032786885246

@@ -1,0 +1,171 @@
+feature,label,group,mean_abs_shap
+lum_change_sd_lag1,Luminance-change variability (−1 window),temporal_context,0.010986053521205782
+shot_duration_lag1,Shot duration (−1 window),temporal_context,0.009321466785182477
+hist_change_max_lag1,Max colour change (−1 window),temporal_context,0.009000780146562904
+shot_elapsed_lag1,Time into shot (−1 window),temporal_context,0.008844730946906052
+lum_change_mean_lag1,Luminance change (−1 window),temporal_context,0.00801845778622528
+shot_duration,Shot duration,shot_timing,0.007997301856151147
+shot_elapsed,Time into shot,shot_timing,0.007862137070816901
+fdiff_sd_lag1,Frame-difference variability (−1 window),temporal_context,0.007586577833720428
+colorful_sd,Colourfulness variability,colour_luminance,0.007000189619295332
+cut_kernel_1s,Cut-response kernel (τ = 1 s),temporal_context,0.0068616069488009555
+shot_remaining_lag2,Time until next cut (−2 window),temporal_context,0.006782484797378548
+mean_shot_len_lag1,Mean shot length (−1 window),temporal_context,0.006075465420911806
+n_cuts_lag1,Number of cuts (−1 window),temporal_context,0.00586967175254168
+fdiff_max_lag1,Max frame difference (−1 window),temporal_context,0.005650589583217485
+lum_sd,Luminance variability,colour_luminance,0.005533133734067843
+cut_kernel_2s,Cut-response kernel (τ = 2 s),temporal_context,0.005385647540474261
+hist_change_mean_lag1,Mean colour change (−1 window),temporal_context,0.00536353980046588
+aud_flux_sd,Audio flux variability,audio,0.005105738584939401
+lbp_entropy,Texture entropy (LBP),texture,0.004987973235228044
+aud_rms_sd,Loudness variability,audio,0.0044983026511156215
+time_since_cut,Time since last cut,temporal_editing,0.004468482663864538
+shot_position_lag2,Relative position in shot (−2 window),temporal_context,0.004252807615343536
+spec_centroid,Spatial spectral centroid,texture,0.004179941978889601
+sobel_sd,Gradient variability,texture,0.0041744828143111465
+shot_remaining_lag1,Time until next cut (−1 window),temporal_context,0.004120962621852249
+sat_change_lag1,Saturation change (−1 window),temporal_context,0.004009583072764855
+hist_change_mean,Mean colour change,temporal_editing,0.003975712030780536
+aud_zcr,Audio zero-crossing rate,audio,0.003974793891728526
+lum_entropy,Luminance entropy,colour_luminance,0.00395122288205434
+edge_change,Edge-density change,temporal_editing,0.0037827400437923336
+hf_ratio_mean,High/low spatial-freq. ratio,texture,0.003605517388898704
+aud_rms_mean,Audio loudness (RMS),audio,0.0035077235295555577
+motion_periphery_lag1,Peripheral motion (−1 window),temporal_context,0.003344977627431105
+flow_dir_entropy_lag2,Motion-direction entropy (−2 window),temporal_context,0.0030142098369851213
+global_motion_lag2,Global (camera) motion (−2 window),temporal_context,0.003001367251279445
+flow_dir_entropy,Motion-direction entropy,motion,0.0029494313458763893
+motgrid_10,Motion middle-left,composition,0.0028977555234966958
+motgrid_00,Motion top-left,composition,0.0028407134816564846
+hue_h2,Hue yellow–green,hue_distribution,0.0027711137113394907
+lum_change_sd,Luminance-change variability,temporal_editing,0.002738190108065631
+lab_a,CIELAB a*,colour_luminance,0.002729437278922833
+motgrid_12,Motion middle-right,composition,0.0024780079541972403
+lumgrid_02,Luminance top-right,composition,0.002421823244669345
+cut_kernel_4s,Cut-response kernel (τ = 4 s),temporal_context,0.002420918543583873
+lab_b,CIELAB b*,colour_luminance,0.002391659548336711
+edge_change_lag1,Edge-density change (−1 window),temporal_context,0.002384370183544372
+flow_x_lag1,Horizontal motion (−1 window),temporal_context,0.002381994011822368
+next_shot_duration_lag1,Next shot duration (−1 window),temporal_context,0.002355435699282813
+shot_duration_lag2,Shot duration (−2 window),temporal_context,0.0021764659223390795
+flow_sd_lag1,Optical-flow variability (−1 window),temporal_context,0.002097901066348079
+flow_max_lag1,Max optical flow (−1 window),temporal_context,0.002022706092489486
+hue_cos,Hue direction (cos),colour_luminance,0.002012684765420261
+sat_sd,Saturation variability,colour_luminance,0.0020025651148265194
+motion_periphery,Peripheral motion,motion,0.0020023162910019175
+next_shot_duration_lag2,Next shot duration (−2 window),temporal_context,0.0019801100304506925
+fdiff_sd,Frame-difference variability,motion,0.001964648626679173
+warmth,Warmth (red − blue),hue_distribution,0.001949976824554035
+fdiff_mean_lag1,Mean frame difference (−1 window),temporal_context,0.0019482031581089167
+global_motion,Global (camera) motion,motion,0.0019456766273056147
+hue_h6,Hue violet,hue_distribution,0.0018798409997309589
+aud_flatness,Audio flatness,audio,0.0018587660784337488
+moving_frac_lag2,Moving-pixel fraction (−2 window),temporal_context,0.0018509817973377646
+bright_frac,Bright-pixel fraction,colour_luminance,0.0018221226075624038
+motgrid_22,Motion bottom-right,composition,0.001796957778394297
+lum_change_mean,Luminance change,temporal_editing,0.0017750482012750617
+hist_change_max,Max colour change,temporal_editing,0.0017559100401811653
+shot_remaining,Time until next cut,shot_timing,0.0017357858187972664
+next_shot_duration,Next shot duration,shot_timing,0.0017355788928351773
+motgrid_20,Motion bottom-left,composition,0.001694754770100132
+aud_bandwidth,Audio bandwidth,audio,0.0016703095962105168
+sobel_mean,Mean gradient,texture,0.0015599430336027365
+flow_sd,Optical-flow variability,motion,0.0015140541718408067
+hue_sin,Hue direction (sin),colour_luminance,0.001506615468379665
+edge_sd,Edge-density variability,texture,0.0014989154349557719
+center_surround,Centre–surround luminance,texture,0.001478015942906379
+moving_frac,Moving-pixel fraction,motion,0.0014753499016247138
+shot_position,Relative position in shot,shot_timing,0.001455929539249016
+fdiff_max_lag2,Max frame difference (−2 window),temporal_context,0.0014523736900350888
+hue_h7,Hue magenta,hue_distribution,0.001450043600139417
+flow_dir_entropy_lag1,Motion-direction entropy (−1 window),temporal_context,0.001447233103839566
+aud_rolloff,Audio roll-off,audio,0.0014450352690299401
+motion_periphery_lag2,Peripheral motion (−2 window),temporal_context,0.0014306889576242293
+prev_shot_duration_lag1,Previous shot duration (−1 window),temporal_context,0.0014120449159745897
+mean_shot_dur_30s,Mean shot duration (past 30 s),shot_timing,0.001389205301646712
+shot_position_lag1,Relative position in shot (−1 window),temporal_context,0.0013411178096015201
+hue_h1,Hue orange–yellow,hue_distribution,0.0013042629873724234
+flow_y_lag1,Vertical motion (−1 window),temporal_context,0.001288284551580691
+motgrid_02,Motion top-right,composition,0.0012876952178754117
+fdiff_mean_lag2,Mean frame difference (−2 window),temporal_context,0.00125592335512611
+sat_change_lag2,Saturation change (−2 window),temporal_context,0.0012529375322074849
+mean_shot_dur_30s_lag1,Mean shot duration (past 30 s) (−1 window),temporal_context,0.0012380029420070262
+hue_h3,Hue green,hue_distribution,0.0012303813865880853
+hue_h5,Hue blue,hue_distribution,0.001210374089897146
+aud_flux_mean,Audio spectral flux,audio,0.0012033177471988486
+G_mean,Mean green,colour_luminance,0.0011994066858797285
+edge_mean,Edge density,texture,0.001197988525783156
+lapvar_sd,Sharpness variability,texture,0.0011911481524616507
+flow_p90_lag2,Optical flow (90th pct.) (−2 window),temporal_context,0.001155583479002197
+global_motion_lag1,Global (camera) motion (−1 window),temporal_context,0.0011460900639001612
+colorful_mean,Colourfulness,colour_luminance,0.0011092522563784714
+motgrid_11,Motion middle-centre,composition,0.0011073094945338432
+lum_change_mean_lag2,Luminance change (−2 window),temporal_context,0.001085318242533141
+flow_x_lag2,Horizontal motion (−2 window),temporal_context,0.001058217918229616
+fdiff_mean,Mean frame difference,motion,0.0010324071602262257
+hf_ratio_sd,Spatial-freq. ratio variability,texture,0.0010228133922150896
+motgrid_01,Motion top-centre,composition,0.0010132537088344792
+local_motion,Local (object) motion,motion,0.0010063834864586733
+rms_sd,Contrast variability,colour_luminance,0.0009988260226439956
+hue_h0,Hue red–orange,hue_distribution,0.000993972615105558
+flow_x,Horizontal motion,motion,0.0009873365283285176
+aud_centroid_sd,Audio centroid variability,audio,0.0009856180142741504
+sat_change,Saturation change,temporal_editing,0.0009652984152454388
+local_motion_lag1,Local (object) motion (−1 window),temporal_context,0.000957963603247865
+aud_centroid_mean,Audio spectral centroid,audio,0.0009468377363676037
+lumgrid_10,Luminance middle-left,composition,0.0009440056224561951
+lumgrid_20,Luminance bottom-left,composition,0.000937489698628498
+moving_frac_lag1,Moving-pixel fraction (−1 window),temporal_context,0.0009356477806097547
+motion_center_lag1,Central motion (−1 window),temporal_context,0.0009284584728474021
+aud_onset_rate,Audio onset rate,audio,0.0009231889275442775
+motion_center,Central motion,motion,0.0009141624391297118
+lumgrid_22,Luminance bottom-right,composition,0.0009044230932015864
+hist_change_max_lag2,Max colour change (−2 window),temporal_context,0.0008976353938529033
+flow_mean,Mean optical flow,motion,0.0008933515261909485
+fdiff_sd_lag2,Frame-difference variability (−2 window),temporal_context,0.000887116111075091
+shot_elapsed_lag2,Time into shot (−2 window),temporal_context,0.0008842322739710002
+flow_max,Max optical flow,motion,0.0008704703105531545
+motion_change_lag1,Motion change (−1 window),temporal_context,0.0008671947032017119
+hist_change_mean_lag2,Mean colour change (−2 window),temporal_context,0.0008592887625371238
+sat_mean,Mean saturation,colour_luminance,0.0008566113580198736
+lum_mean,Mean luminance,colour_luminance,0.0008477962433178805
+time_since_cut_lag2,Time since last cut (−2 window),temporal_context,0.0008464424337316182
+motion_change_lag2,Motion change (−2 window),temporal_context,0.0008424510656838909
+prev_shot_duration_lag2,Previous shot duration (−2 window),temporal_context,0.0008214349088368187
+mean_shot_dur_30s_lag2,Mean shot duration (past 30 s) (−2 window),temporal_context,0.0007997714458525957
+hue_h4,Hue cyan,hue_distribution,0.0007947599158676176
+B_mean,Mean blue,colour_luminance,0.0007799626738950653
+dark_frac,Dark-pixel fraction,colour_luminance,0.000747999427984612
+edge_change_lag2,Edge-density change (−2 window),temporal_context,0.0007440614238407719
+fdiff_max,Max frame difference,motion,0.000742349581118011
+lapvar_mean,Sharpness,texture,0.0007373767254205766
+flow_y,Vertical motion,motion,0.0007198111259191067
+lumgrid_01,Luminance top-centre,composition,0.0006871900286949716
+flow_y_lag2,Vertical motion (−2 window),temporal_context,0.000668471932998419
+lumgrid_12,Luminance middle-right,composition,0.0006471365749744043
+flow_mean_lag2,Mean optical flow (−2 window),temporal_context,0.0006442008782693048
+lum_change_sd_lag2,Luminance-change variability (−2 window),temporal_context,0.0006410065794410541
+rms_mean,RMS contrast,colour_luminance,0.0006265957052633054
+flow_sd_lag2,Optical-flow variability (−2 window),temporal_context,0.0005982729539376149
+lumgrid_11,Luminance middle-centre,composition,0.0005957932838344473
+time_since_cut_lag1,Time since last cut (−1 window),temporal_context,0.0005641519374864874
+cut_rate_30s_lag2,Cut rate (past 30 s) (−2 window),temporal_context,0.0005578830289147896
+flow_p90_lag1,Optical flow (90th pct.) (−1 window),temporal_context,0.0005510069279532482
+flow_max_lag2,Max optical flow (−2 window),temporal_context,0.0005369338852968587
+prev_shot_duration,Previous shot duration,shot_timing,0.0005258037522992195
+lumgrid_21,Luminance bottom-centre,composition,0.0005230889530659594
+flow_mean_lag1,Mean optical flow (−1 window),temporal_context,0.0005224434362682131
+motion_change,Motion change,temporal_editing,0.0005078651654219493
+motgrid_21,Motion bottom-centre,composition,0.00046129878760871855
+lumgrid_00,Luminance top-left,composition,0.00044393988000456425
+flow_p90,Optical flow (90th pct.),motion,0.0004431420342680644
+R_mean,Mean red,colour_luminance,0.00038396474270078416
+motion_center_lag2,Central motion (−2 window),temporal_context,0.0003811480977758353
+local_motion_lag2,Local (object) motion (−2 window),temporal_context,0.0003786731727997703
+cut_rate_30s,Cut rate (past 30 s),shot_timing,0.0003203815368071652
+aud_silence_frac,Silence fraction,audio,0.00020004901501272668
+n_cuts_lag2,Number of cuts (−2 window),temporal_context,0.00019710092549708917
+mean_shot_len_lag2,Mean shot length (−2 window),temporal_context,8.654647055171223e-05
+cut_rate_30s_lag1,Cut rate (past 30 s) (−1 window),temporal_context,6.760894285335487e-05
+n_cuts,Number of cuts,temporal_editing,3.761901891254406e-05
+mean_shot_len,Mean shot length,temporal_editing,2.651247990995558e-05

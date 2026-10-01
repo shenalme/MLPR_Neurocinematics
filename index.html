@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Predicting Shared Neural Responses to Cinematic Content: downloads</title>
+<meta name="description" content="Colab notebook, data files and supplementary material for a paper under review.">
+<meta property="og:title" content="Predicting Shared Neural Responses to Cinematic Content">
+<meta property="og:description" content="Colab notebook, data files and supplementary material.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#F2F4F3">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4F3;
+  --plate:#FFFFFF;
+  --ink:#17212B;
+  --muted:#56636E;
+  --rule:#D2D9DC;
+  --rule-strong:#AEB9BF;
+  --trace:#0072B2;
+  --trace-soft:#D6E8F3;
+  --cut:#D55E00;
+  --cut-soft:#F8E4D6;
+  --hold:#008A64;
+  --hold-soft:#D5EEE5;
+  --shot-a:#C9CFD3;
+  --shot-b:#9AA4AB;
+  --sans:"Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --serif:"Literata", Georgia, "Times New Roman", serif;
+  --measure:40rem;
+  --wide:58rem;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141A20; --plate:#FFFFFF; --ink:#E6ECEF; --muted:#9FAEB8;
+    --rule:#2C3740; --rule-strong:#44525D; --trace:#4FA9E0; --trace-soft:#1C3444;
+    --cut:#F07A2E; --cut-soft:#3A2618; --hold:#3CC49A; --hold-soft:#17352C;
+    --shot-a:#3A4650; --shot-b:#56646F;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141A20; --plate:#FFFFFF; --ink:#E6ECEF; --muted:#9FAEB8;
+  --rule:#2C3740; --rule-strong:#44525D; --trace:#4FA9E0; --trace-soft:#1C3444;
+  --cut:#F07A2E; --cut-soft:#3A2618; --hold:#3CC49A; --hold-soft:#17352C;
+  --shot-a:#3A4650; --shot-b:#56646F;
+}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none !important}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 1.5rem);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.0625rem;line-height:1.72;font-optical-sizing:auto;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--trace);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--trace);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.5rem 1rem;z-index:10;font-family:var(--sans)}
+.skip:focus{left:1rem;top:1rem}
+
+/* ---------- hero ---------- */
+.hero{max-width:76rem;margin:0 auto;padding:clamp(2.5rem,7vw,5.5rem) clamp(1.1rem,4vw,2.5rem) 0}
+.venue{font-family:var(--sans);font-size:.95rem;color:var(--muted);margin:0 0 1.4rem}
+.hero h1{font-family:var(--sans);font-variation-settings:"wdth" 118;font-weight:800;font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.02;letter-spacing:-.018em;margin:0;max-width:22ch;text-wrap:balance}
+.authors{font-family:var(--sans);margin:1.8rem 0 0;font-size:1.05rem;line-height:1.5}
+.authors .aff{display:block;color:var(--muted);font-size:.95rem;margin-top:.25rem}
+.hero-trace{margin:clamp(2rem,5vw,3.25rem) 0 0;position:relative}
+.hero-trace svg{display:block;width:100%;overflow:visible}
+.hero-foot{display:flex;flex-wrap:wrap;gap:1.25rem 2.5rem;align-items:flex-start;justify-content:space-between;margin-top:1rem;padding-bottom:clamp(2rem,5vw,3.5rem);border-bottom:1px solid var(--rule)}
+.hero-foot p{margin:0;font-family:var(--sans);font-size:.95rem;color:var(--muted);max-width:36rem;line-height:1.5}
+.hero-foot p strong{color:var(--ink);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn{font-family:var(--sans);font-size:.95rem;font-weight:600;display:inline-flex;align-items:center;gap:.5rem;padding:.62rem 1.05rem;border-radius:4px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;cursor:pointer;line-height:1.2}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:transparent;color:var(--ink)}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.btn.small{font-size:.85rem;padding:.42rem .75rem;border-width:1px}
+.btn svg{width:1em;height:1em;flex:none}
+
+
+main{max-width:76rem;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem) 4rem}
+main > section{padding-top:3rem;max-width:var(--wide)}
+main h2{font-family:var(--sans);font-variation-settings:"wdth" 112;font-weight:780;font-size:clamp(1.75rem,3vw,2.3rem);line-height:1.05;letter-spacing:-.015em;margin:0 0 1rem}
+main h3{font-family:var(--sans);font-weight:700;font-size:1.2rem;line-height:1.25;margin:2rem 0 .7rem}
+main p{max-width:var(--measure);margin:0 0 1em}
+
+.summary{font-size:1.1rem;line-height:1.65;max-width:var(--measure);margin:1.6rem 0 0}
+.hero-foot{border-bottom:1px solid var(--rule);padding-bottom:clamp(2rem,5vw,3rem);margin-top:1.6rem}
+code.inline{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em}
+
+.dl-group{max-width:var(--wide);margin:1.6rem 0 2.2rem}
+.dl-group h3{margin-top:0}
+.dl-list{list-style:none;padding:0;margin:0;border-top:2px solid var(--ink)}
+.dl-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem 1.5rem;align-items:center;padding:1rem 0;border-bottom:1px solid var(--rule);margin:0}
+@media (max-width:640px){.dl-list li{grid-template-columns:minmax(0,1fr)}}
+.dl-title{font-family:var(--sans);font-weight:700;font-size:1.02rem;line-height:1.3}
+.dl-desc{font-size:.95rem;line-height:1.55;margin:.25rem 0 0;color:var(--ink)}
+.dl-meta{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:.35rem 0 0;display:flex;flex-wrap:wrap;gap:.3rem 1rem}
+.dl-meta code{font-family:inherit;background:transparent;color:var(--muted)}
+.status{font-weight:600}
+.status.missing{color:var(--cut)}
+.dl-actions{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:flex-end}
+@media (max-width:640px){.dl-actions{justify-content:flex-start}}
+.dl-empty{font-family:var(--sans);font-size:.95rem;color:var(--muted);padding:1rem 0;border-bottom:1px solid var(--rule)}
+
+
+
+footer{max-width:76rem;margin:0 auto;padding:2rem clamp(1.1rem,4vw,2.5rem) 3rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:.88rem;color:var(--muted)}
+
+
+@media (prefers-reduced-motion: reduce){}
+
+figure.fig{margin:2rem 0 2.2rem;max-width:var(--wide)}
+figure.fig.narrow{max-width:32rem}
+figure.fig.mid{max-width:44rem}
+.plate{background:var(--plate);border:1px solid var(--rule);border-radius:3px;padding:clamp(.6rem,1.5vw,1rem);display:grid;gap:clamp(.6rem,1.5vw,1rem)}
+.plate.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:600px){.plate.cols-2{grid-template-columns:minmax(0,1fr)}}
+.panel{position:relative;margin:0}
+.panel button{all:unset;display:block;cursor:zoom-in;width:100%}
+.panel button:focus-visible{outline:3px solid var(--trace);outline-offset:2px}
+.panel .pl{display:block;font-family:var(--sans);font-weight:700;font-style:italic;font-size:.9rem;line-height:1;color:#56636E;margin:0 0 .35rem}
+figcaption{font-family:var(--sans);font-size:.9rem;line-height:1.5;color:var(--muted);margin-top:.7rem;max-width:var(--measure)}
+figcaption b{color:var(--ink);font-weight:700;margin-right:.35em}
+
+
+.tbl{margin:1.8rem 0 2rem;max-width:var(--wide)}
+.tbl .cap{font-family:var(--sans);font-size:.9rem;line-height:1.5;color:var(--muted);margin:0 0 .6rem;max-width:var(--measure)}
+.tbl .cap b{color:var(--ink);margin-right:.35em}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-family:var(--sans);font-size:.9rem;line-height:1.4;font-variant-numeric:tabular-nums}
+thead th{text-align:left;font-weight:700;padding:.55rem .75rem .55rem 0;border-bottom:2px solid var(--ink);vertical-align:bottom}
+tbody td, tbody th{padding:.55rem .75rem .55rem 0;border-bottom:1px solid var(--rule);vertical-align:top;text-align:left}
+tbody th{font-weight:600;min-width:9rem}
+td.num, th.num{text-align:right;white-space:nowrap;padding-right:0;padding-left:.75rem}
+td.sig{color:var(--trace);font-weight:700}
+tr.group td{padding-top:1rem;font-weight:700;color:var(--muted);border-bottom-color:var(--rule-strong)}
+.tbl .legend{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:.5rem 0 0}
+.tbl .legend .sig{color:var(--trace);font-weight:700}
+.bar{display:inline-block;height:.55rem;background:var(--trace);border-radius:1px;vertical-align:middle;margin-left:.5rem}
+.bar.neg{background:var(--cut)}
+
+
+.gallery{display:grid;grid-template-columns:minmax(0,1fr);gap:2.4rem;max-width:var(--wide);margin:1.4rem 0}
+.gallery figure{margin:0}
+.gallery .plate{padding:.5rem;gap:.5rem}
+.gallery .plate.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery figcaption{font-size:.84rem;margin-top:.5rem}
+
+
+
+.panel a{display:block;cursor:zoom-in}
+.gallery figure.single .plate{max-width:36rem}
+.gallery .plate.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:600px){.gallery .plate.cols-2{grid-template-columns:minmax(0,1fr)}}
+.panel a:focus-visible{outline:3px solid var(--trace);outline-offset:2px}
+main section .tbl{max-width:var(--wide)}
+
+.tech{list-style:none;padding:0;margin:0;border-top:2px solid var(--ink);max-width:var(--wide)}
+.tech li{display:grid;grid-template-columns:minmax(9rem,13rem) minmax(0,1fr);gap:.3rem 1.5rem;padding:.75rem 0;border-bottom:1px solid var(--rule)}
+.tech .name{font-family:var(--sans);font-weight:700;font-size:1rem}
+.tech .use{font-size:.96rem;line-height:1.5}
+.tech .ref{display:block;font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:.2rem}
+@media (max-width:560px){.tech li{grid-template-columns:minmax(0,1fr)}}
+.back{font-family:var(--sans);font-size:.95rem;display:inline-block;margin:0 0 1.2rem}
+
+details.files{max-width:var(--wide);border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);margin:0 0 1rem}
+details.files > summary{font-family:var(--sans);font-weight:700;font-size:1.02rem;padding:.9rem 0;cursor:pointer}
+details.files h4{font-family:var(--sans);font-size:.95rem;font-weight:700;margin:1.2rem 0 .3rem;color:var(--muted)}
+.file-list{list-style:none;padding:0;margin:0}
+.file-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.1rem 1rem;padding:.55rem 0;border-top:1px solid var(--rule)}
+.file-list a{font-family:var(--sans);font-weight:600;font-size:.92rem;word-break:break-all}
+.file-list .sz{font-family:var(--sans);font-size:.82rem;color:var(--muted);white-space:nowrap;align-self:start;padding-top:.1rem}
+.file-list .d{grid-column:1 / -1;font-size:.92rem;line-height:1.5}
+.dl-empty{font-family:var(--sans);font-size:.95rem;color:var(--muted);padding:1rem 0;border-bottom:1px solid var(--rule);display:block}
+.tech .ver{font-weight:500;font-size:.85rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to downloads</a>
+<header class="hero">
+  <p class="venue">Paper under review</p>
+  <h1>Predicting shared neural responses to cinematic content</h1>
+  <p class="summary">Notebook, data files and supplementary material for the paper. The study predicts audience brain synchrony (EEG inter-subject correlation) from interpretable film features, using recordings from nine viewers of a 24-minute film.</p>
+  <div class="hero-foot">
+    <div class="actions">
+      <a class="btn primary" href="#downloads">Downloads</a>
+      <a class="btn" href="supplementary.html">Supplementary material</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section id="downloads" aria-labelledby="h-downloads">
+  <h2 id="h-downloads">Downloads</h2>
+  <div class="dl-group"><h3>Google Colab notebook</h3><ul class="dl-list">
+    <li><div><div class="dl-title">Full analysis pipeline</div>
+      <p class="dl-desc">Runs the whole study top to bottom: video–EEG alignment and preprocessing, channel-average and CorrCA ISC, feature extraction, the leakage-controlled split, the five classifiers, the evaluation protocols, SHAP and the null test. Expensive steps are cached on Google Drive.</p>
+      <p class="dl-meta"><span>MrBean_ISC_CorrCA_Paper.ipynb</span><span>5.1 MB</span></p></div>
+      <div class="dl-actions"><a class="btn small primary" id="colabLink" href="https://colab.research.google.com/" target="_blank" rel="noopener" data-path="notebooks/MrBean_ISC_CorrCA_Paper.ipynb">Open in Colab</a>
+      <a class="btn small" href="notebooks/MrBean_ISC_CorrCA_Paper.ipynb" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+  </ul></div>
+  <div class="dl-group"><h3>Data files</h3><ul class="dl-list">
+    <li><div><div class="dl-title">KU Leuven Video-EEG Encoding–Decoding dataset (main dataset)</div>
+      <p class="dl-desc">Source EEG and stimulus information. The study uses the Mr. Bean subset: nine participants watching a 24-minute excerpt without sound, recorded with a 64-channel BioSemi ActiveTwo system at 2048 Hz. Download it from Zenodo before running the notebook.</p>
+      <p class="dl-meta"><span>Yao, Y., Stebner, A., Tuytelaars, T., et al., Zenodo, 2024, doi: 10.5281/zenodo.10512414</span></p></div>
+      <div class="dl-actions"><a class="btn small primary" href="https://doi.org/10.5281/zenodo.10512414" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M9 2h5v5h-1.5V4.56L7.53 9.53 6.47 8.47l4.97-4.97H9zM3.5 4H7v1.5H3.5v7h7V9H12v5H2V4z"/></svg>Open on Zenodo</a></div></li>
+    <li><div><div class="dl-title">CorrCA ISC by window</div>
+      <p class="dl-desc">CorrCA ISC per participant and 4-s window, overall and for components 1–3.</p>
+      <p class="dl-meta"><span>isc_corrca_by_window.csv</span><span>283 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/isc_corrca_by_window.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">ISC by participant</div>
+      <p class="dl-desc">ISC summary statistics for each participant.</p>
+      <p class="dl-meta"><span>isc_descriptive_by_participant.csv</span><span>1 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/isc_descriptive_by_participant.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">ISC split-half reliability</div>
+      <p class="dl-desc">Split-half reliability of the audience ISC over 200 random splits, for both ISC measures.</p>
+      <p class="dl-meta"><span>isc_reliability_split_half.csv</span><span>1 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/isc_reliability_split_half.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Low-level feature descriptives</div>
+      <p class="dl-desc">Descriptive statistics of the 170 low-level features, with feature group and readable label.</p>
+      <p class="dl-meta"><span>feature_descriptives.csv</span><span>32 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/feature_descriptives.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">PCA and t-SNE projections</div>
+      <p class="dl-desc">PCA and t-SNE coordinates of each window, with the group ISC.</p>
+      <p class="dl-meta"><span>projections.csv</span><span>29 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/projections.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Train / validation / test split</div>
+      <p class="dl-desc">Split (train, validation, test, buffer), shot unit and block for every window.</p>
+      <p class="dl-meta"><span>split_assignment.csv</span><span>7 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/split_assignment.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Class balance by target</div>
+      <p class="dl-desc">Share of HIGH windows per target and split.</p>
+      <p class="dl-meta"><span>class_balance_by_target.csv</span><span>1 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/class_balance_by_target.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Class balance by participant</div>
+      <p class="dl-desc">Share of HIGH windows per participant and split.</p>
+      <p class="dl-meta"><span>class_balance_individual_by_participant.csv</span><span>1 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/class_balance_individual_by_participant.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Leave-one-subject-out summary</div>
+      <p class="dl-desc">Leave-one-subject-out results per configuration: mean and SD balanced accuracy and ROC-AUC, viewers above chance, Wilcoxon p.</p>
+      <p class="dl-meta"><span>loso_summary.csv</span><span>8 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/loso_summary.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Leave-one-subject-out results per viewer</div>
+      <p class="dl-desc">Leave-one-subject-out results for every held-out viewer.</p>
+      <p class="dl-meta"><span>loso_results.csv</span><span>65 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/loso_results.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Target comparison</div>
+      <p class="dl-desc">Comparison of the three prediction targets (Visual + Audio features).</p>
+      <p class="dl-meta"><span>target_comparison_visual_audio.csv</span><span>3 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/target_comparison_visual_audio.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Label lag analysis</div>
+      <p class="dl-desc">Test performance when the target is shifted from −8 s to +12 s.</p>
+      <p class="dl-meta"><span>label_lag_analysis.csv</span><span>1 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/label_lag_analysis.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Feature-group ablation</div>
+      <p class="dl-desc">Feature-group ablation of the primary model, with bootstrap CIs.</p>
+      <p class="dl-meta"><span>ablation_lowlevel_test.csv</span><span>3 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/ablation_lowlevel_test.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Configuration search, all 150 configurations</div>
+      <p class="dl-desc">All 150 configurations of the exploratory search: validation and test metrics with bootstrap CIs.</p>
+      <p class="dl-meta"><span>combination_results_test.csv</span><span>51 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/combination_results_test.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Configuration search per participant</div>
+      <p class="dl-desc">Test metrics per participant for every configuration.</p>
+      <p class="dl-meta"><span>combination_per_participant_test.csv</span><span>187 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/combination_per_participant_test.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Hyper-parameter tuning on validation</div>
+      <p class="dl-desc">Hyper-parameter tuning results on the validation set.</p>
+      <p class="dl-meta"><span>combination_tuning_validation.csv</span><span>66 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/combination_tuning_validation.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Feature-block contributions</div>
+      <p class="dl-desc">Change in test balanced accuracy when each feature block is added.</p>
+      <p class="dl-meta"><span>block_marginal_contributions.csv</span><span>10 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/block_marginal_contributions.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Circular-shift null test</div>
+      <p class="dl-desc">Balanced accuracy under 30 circular shifts (null distribution).</p>
+      <p class="dl-meta"><span>null_test.csv</span><span>1 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/null_test.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">SHAP feature importance</div>
+      <p class="dl-desc">Mean absolute SHAP value per feature for the primary model.</p>
+      <p class="dl-meta"><span>shap_importance_visual_audio.csv</span><span>12 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/shap_importance_visual_audio.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Permutation feature importance</div>
+      <p class="dl-desc">Permutation importance (drop in ROC-AUC) per feature for the primary model.</p>
+      <p class="dl-meta"><span>permutation_importance_visual_audio.csv</span><span>16 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/permutation_importance_visual_audio.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Feature-block permutation importance</div>
+      <p class="dl-desc">Drop in ROC-AUC when each feature block of the validation-best model is shuffled.</p>
+      <p class="dl-meta"><span>block_permutation_importance_best.csv</span><span>1 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/block_permutation_importance_best.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+    <li><div><div class="dl-title">Figure captions</div>
+      <p class="dl-desc">Titles and captions of all generated figures.</p>
+      <p class="dl-meta"><span>figure_captions.csv</span><span>12 KB</span></p></div>
+      <div class="dl-actions"><a class="btn small" href="data/figure_captions.csv" download><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M7.25 1h1.5v7.19l2.47-2.47 1.06 1.06L8 11.06 3.72 6.78l1.06-1.06 2.47 2.47zM2 13.5h12V15H2z"/></svg>Download</a></div></li>
+  </ul></div>
+</section>
+
+
+<section id="technologies" aria-labelledby="h-tech">
+  <h2 id="h-tech">Technologies used</h2>
+  <p>Version numbers are those recorded in <a href="data/run_info.json">run_info.json</a>.</p>
+  <ul class="tech"><li><span class="name"><a href="https://www.python.org" target="_blank" rel="noopener">Python</a></span><span class="use">Language for the whole pipeline.</span></li><li><span class="name"><a href="https://mne.tools" target="_blank" rel="noopener">MNE-Python</a> <span class="ver">1.13.2</span></span><span class="use">EEG preprocessing: channel mapping, interpolation, referencing, filtering, resampling, EOG regression.<span class="ref">Gramfort et al., Front. Neurosci., 2013</span></span></li><li><span class="name"><a href="https://opencv.org" target="_blank" rel="noopener">OpenCV</a></span><span class="use">Frame-level visual features, optical flow and shot-cut detection.</span></li><li><span class="name"><a href="https://ffmpeg.org" target="_blank" rel="noopener">FFmpeg</a></span><span class="use">Video decoding and audio extraction.</span></li><li><span class="name"><a href="https://scikit-learn.org" target="_blank" rel="noopener">scikit-learn</a> <span class="ver">1.6.1</span></span><span class="use">Logistic regression, SVM, random forest, MLP, PCA and evaluation metrics.<span class="ref">Pedregosa et al., J. Mach. Learn. Res., 2011</span></span></li><li><span class="name"><a href="https://xgboost.readthedocs.io" target="_blank" rel="noopener">XGBoost</a> <span class="ver">3.4.1</span></span><span class="use">Gradient-boosted tree classifier.<span class="ref">Chen and Guestrin, KDD, 2016</span></span></li><li><span class="name"><a href="https://github.com/shap/shap" target="_blank" rel="noopener">SHAP</a> <span class="ver">0.52.0</span></span><span class="use">Global, dependence and local model explanations.<span class="ref">Lundberg and Lee, NeurIPS, 2017</span></span></li><li><span class="name"><a href="https://pytorch.org" target="_blank" rel="noopener">PyTorch</a></span><span class="use">Runtime for the image embedding models.</span></li><li><span class="name"><a href="https://github.com/openai/CLIP" target="_blank" rel="noopener">CLIP ViT-B/32</a></span><span class="use">512-dimensional image embeddings, sampled at 1 fps.<span class="ref">Radford et al., ICML, 2021</span></span></li><li><span class="name"><a href="https://github.com/facebookresearch/dinov2" target="_blank" rel="noopener">DINOv2 ViT-S/14</a></span><span class="use">384-dimensional image embeddings, sampled at 1 fps.<span class="ref">Oquab et al., Trans. Mach. Learn. Res., 2024</span></span></li><li><span class="name"><a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">Hugging Face Transformers</a></span><span class="use">Loading the pretrained DINOv2 model (facebook/dinov2-small).</span></li></ul>
+</section>
+
+<section id="supplementary" aria-labelledby="h-supp">
+  <h2 id="h-supp">Supplementary material</h2>
+  <p>Supplementary figures S1–S17 and tables S1–S4 are on a separate page.</p>
+  <a class="btn" href="supplementary.html">View supplementary material</a>
+</section>
+</main>
+
+<footer>Paper under review. Please do not redistribute.</footer>
+<script>
+(function(){
+  /* Builds the "Open in Colab" link from the GitHub Pages address.
+     On a custom domain, set USER and REPO below. */
+  var USER = "", REPO = "", BRANCH = "main", ROOT = "";
+  var a = document.getElementById("colabLink");
+  var h = location.hostname;
+  if (!(USER && REPO) && h.slice(-10) === ".github.io") {
+    USER = h.slice(0, -10);
+    var seg = location.pathname.split("/").filter(Boolean)[0];
+    REPO = (seg && seg.indexOf(".") < 0) ? seg : USER + ".github.io";
+  }
+  if (USER && REPO) a.href = "https://colab.research.google.com/github/" + USER + "/" + REPO + "/blob/" + BRANCH + "/" + ROOT + a.dataset.path;
+  else { a.setAttribute("aria-disabled","true"); a.removeAttribute("href"); a.title = "Available once the site is on GitHub Pages"; }
+})();
+</script>
+</body>
+</html>
